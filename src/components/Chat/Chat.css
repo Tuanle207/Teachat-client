@@ -1,0 +1,38 @@
+.content {
+    margin: 0 17.5rem;
+    display: flex;
+    height: 100vh;
+    min-height: 30rem;
+    min-width: 60rem;
+    box-shadow: var(--box-shadow-dark);
+  }
+  @media only screen and (max-width: 75em) {
+    .content {
+      margin: 0 10.5rem;
+    }
+  }
+  @media only screen and (max-width: 56.25em) {
+    .content {
+      margin: 0rem;
+    }
+  }
+  @media only screen and (max-width: 37.5em) {
+    .content {
+      margin: 0rem;
+      min-width: 40rem;
+      width: 100%;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: var(--color-grey-3);
+    visibility: hidden;
+  }
+  :hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }

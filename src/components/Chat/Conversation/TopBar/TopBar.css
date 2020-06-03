@@ -1,0 +1,40 @@
+.top-bar {
+    background-color: var(--color-grey-1);
+    height: 5.5rem;
+    display: flex;
+    color: var(--color-dark-3);
+    box-shadow: var(--box-shadow-dark);
+  }
+  .top-bar__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-left: 2rem;
+  }
+  .top-bar__card__user-icon {
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 50%;
+  }
+  .top-bar__card__name {
+    margin-left: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  .top-bar__live-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .top-bar__icon {
+    width: 2.25rem;
+    height: 100%;
+    fill: currentColor;
+    padding: 1.5rem;
+    box-sizing: content-box;
+    cursor: pointer;
+  }
+  .top-bar__icon:hover {
+    background-color: var(--color-grey-2);
+  }

@@ -1,0 +1,11 @@
+.emoji-box {
+    position: absolute;
+    z-index: 10;
+    bottom: 4rem;
+    right: 1rem;
+    visibility: hidden;
+}
+
+.emoji-box--active {
+    visibility: visible;
+}

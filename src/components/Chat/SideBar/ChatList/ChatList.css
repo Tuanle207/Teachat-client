@@ -1,0 +1,89 @@
+.friends {
+    margin-top: 1rem;
+    height: calc(100% - 19.55rem);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: all 0.15s;
+  }
+  @media only screen and (max-width: 56.25em) {
+    .friends {
+      margin-top: 0;
+      height: calc(100% - 26.3rem);
+    }
+  }
+
+  .friends--active {
+    height: calc(100% - 33.55rem);
+  }
+  .friends__list {
+    list-style: none;
+  }
+  .friends__item {
+    cursor: pointer;
+  }
+  @media only screen and (max-width: 56.25em) {
+    .friends__item {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .friends__item:hover {
+    background-color: var(--color-dark-2);
+  }
+  .friends__item--active {
+    background-color: var(--color-dark-2);
+    border-left: 0.5rem solid var(--color-dark-1);
+  }
+  .friends__item--active figure {
+    padding-left: 1.75rem;
+  }
+  @media only screen and (max-width: 56.25em) {
+    .friends__item--active figure {
+      padding-left: 0;
+    }
+  }
+  .friends__card {
+    padding: 1.25rem 2.25rem;
+    display: flex;
+    align-items: center;
+  }
+  @media only screen and (max-width: 56.25em) {
+    .friends__card {
+      padding: 0.75rem 0.5rem;
+    }
+  }
+  .friends__card__photo {
+    width: 4.5rem;
+    border-radius: 50%;
+  }
+  @media only screen and (max-width: 56.25em) {
+    .friends__card__photo {
+      width: 4rem;
+    }
+  }
+  .friends__card__text {
+    margin-left: 1.25rem;
+  }
+  @media only screen and (max-width: 56.25em) {
+    .friends__card__text {
+      display: none;
+    }
+  }
+  .friends__card__text--name {
+    font-size: 1.4rem;
+    line-height: 1.75;
+  }
+  .friends__card__text--message {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .friends__card__text--message__current-user {
+    color: var(--color-grey-3);
+    display: inline-block;
+  }
+  .chat-list-no-item {
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 1.4rem;
+}

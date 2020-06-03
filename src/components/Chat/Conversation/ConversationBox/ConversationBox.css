@@ -1,0 +1,52 @@
+.conversation {
+    height: calc(100% - 9.5rem);
+    background-color: var(--color-grey-2);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .conversation__list {
+    list-style: none;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .conversation__message {
+    display: flex;
+    align-items: flex-start;
+    width: 75%;
+    margin-bottom: 0.25rem;
+    padding: 0 1.25rem;
+  }
+  .conversation__message__img {
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-right: 0.75rem;
+    margin-top: 0.75rem;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 1rem 1rem 10rem #000;
+  }
+  .conversation__message__text {
+    padding: 1.25rem;
+    font-size: 1.4rem;
+    border-radius: 2rem;
+    word-break: break-word;
+  }
+  .conversation__message--left p {
+    color: var(--color-dark-3);
+    background-color: var(--color-grey-1);
+  }
+  .conversation__message--right {
+    flex-direction: row-reverse;
+    align-self: flex-end;
+  }
+  .conversation__message--right img {
+    margin-right: 0;
+    margin-left: 0.75rem;
+  }
+  .conversation__message--right p {
+    color: var(--color-grey-1);
+    background-color: var(--color-dark-1);
+  }

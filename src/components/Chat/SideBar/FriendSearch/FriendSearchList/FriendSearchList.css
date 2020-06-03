@@ -1,0 +1,75 @@
+.friend-list-box {
+    height: calc(100vh - 10.25rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 1rem 0;
+}
+.friend-list {
+    list-style: none;
+}
+
+.friend-list-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    padding-left: 1.5rem;
+}
+
+.friend-list-item:hover {
+    background-color: var(--color-dark-4) ;
+}
+
+.friend-list-no-item {
+    text-align: center;
+    margin-top: 20rem;
+    font-size: 1.4rem;
+}
+
+.friend-list-item img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-right: 1.25rem;
+}
+
+.friend-list-item div {
+    margin-right: auto;
+}
+
+.friend-list-item div p:first-child {
+    font-size: 1.4rem;
+}
+.friend-list-item div p:last-child  {
+    font-size: 1.2rem;
+}
+
+
+.friend-list-item svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: currentColor;
+    padding: 1rem;
+    box-sizing: content-box;
+}
+.friend-list-item svg:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0, 0.5);
+    border-radius: 50%;
+}
+
+
+
+
+
+.friend-list-box::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: transparent;
+  }
+  .friend-list-box::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: var(--color-grey-3);
+    visibility: hidden;
+  }
+  .friend-list-box:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }

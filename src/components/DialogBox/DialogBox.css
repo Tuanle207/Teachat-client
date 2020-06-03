@@ -1,0 +1,22 @@
+.dialog-box {
+    position: absolute;
+    display: flex;
+    display: none;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.3rem;
+    z-index: 100;
+    align-items: center;
+    width: 20rem;
+    height: 8rem;
+    padding: 1.5rem 0.5rem 2rem 2rem;
+    border-radius: 5px;
+    background-color: var(--color-dot-offline);
+}
+
+.dialog-box__icon {
+    width: 3rem;
+    height: 3rem;
+    fill: currentColor;
+    margin-right: 1.75rem;
+}
