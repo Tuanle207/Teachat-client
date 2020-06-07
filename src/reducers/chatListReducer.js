@@ -12,9 +12,14 @@ const chatListReducer = (state = {}, action) => {
         case ACTION_TYPE.SEND_MESSAGE:
         case ACTION_TYPE.RECEIVE_MESSAGE:
             const id = action.payload.chat;
-            const newState = {...state};
-            newState[id].latestMessage = action.payload;
-            return newState;
+            const newStateCase1 = {...state};
+            newStateCase1[id].latestMessage = action.payload;
+            return newStateCase1;
+        case ACTION_TYPE.CREATE_CHAT:
+            const newStateCase2 = {...state};
+            const newChat = `${action.payload._id}`;
+            newStateCase2[newChat] = action.payload;
+            return newStateCase2;
         case ACTION_TYPE.LOG_OUT:
             return {};
         default:

@@ -1,6 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {showFriendRequests, getFriendRequest, showUserOperation, logout} from '../../../../actions';
+import {
+showFriendRequests,
+getFriendRequest,
+showUserOperation,
+logout,
+acceptFriendRequest,
+removeFriendRequest,
+getChats
+} from '../../../../actions';
 
 import svgIcon from '../../../../img/sprite.svg'
 import './ProfileBox.css';
@@ -19,34 +27,36 @@ class ProfileBox extends React.Component {
     showUserOperation = () => {
         this.props.showUserOperation(!this.props.UIState.userOperationShowing);
     }
+    acceptFriend = requestId => {
+        this.props.acceptFriendRequest(requestId);
+    }
     
     renderFriendRequest = () => {
-        if (this.props.friendRequests || this.props.friendRequests.length === 0) {
+        if (this.props.friendRequests.length === 0) {
             return (
                 <li className="friend-list-no-item" style={{marginTop: '8rem'}}>
                     No friend request.
                 </li>
             );
         }
-        return this.props.frendRequests.map(fr => {
+        return this.props.friendRequests.map(({from, _id}) => {
             return (
-                <li className="notification__content--item" key={fr.name}>
+                <li className="notification__content--item" key={from.name}>
                     <img
                     src="http://localhost:5000/img/user.jpg"
-                    alt={fr.name}/>
+                    alt={from.name}/>
                     <div>
-                        <p>{fr.nickName}</p>
-                        <p>{fr.name}</p>
+                        <p>{from.nickName}</p>
+                        <p>{from.name}</p>
                     </div>
-                    <button>Accept</button>
-                    <button>Remove</button>
+                    <button onClick={this.acceptFriend.bind(null, _id)}>Accept</button>
+                    <button onClick={this.props.removeFriendRequest.bind(null, _id)}>Remove</button>
                 </li>
             );
         });
     }
 
     render() {
-        console.log(this.props.friendRequests);
         return (
             <div className="profile">
                 <figure className="profile__card">
@@ -64,7 +74,7 @@ class ProfileBox extends React.Component {
                         <use xlinkHref={`${svgIcon}#icon-bullhorn`}></use>
                     </svg>
                     {
-                        this.props.friendRequests && this.props.friendRequests.length > 0
+                        this.props.friendRequests.length > 0
                         ?
                         (
                             <span className="notification__text">{this.props.friendRequests.length}</span>
@@ -131,13 +141,15 @@ const mapDispatchToProps = {
     showFriendRequests,
     showUserOperation,
     getFriendRequest,
-    logout
+    logout,
+    acceptFriendRequest,
+    removeFriendRequest,
+    getChats
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileBox);
 
 
 /**
- * 1,) IMPLEMENT FRIEND REQUESTS NOTIFICATION ON UI: ACCEPT, REMOVE FRIEND REQUEST, USING SOCKETIO FOR REALTIME
- * 2,) CANCEL FRIEND REQUEST!
- * 3,) CREATE NEW CHAT IN DB WHEN START CHAT WITH A NEW FRIEND
+ * 1,) USING SOCKETIO FOR REALTIME
+ * 2,) FIX CANCEL FRIEND REQUEST!
  */

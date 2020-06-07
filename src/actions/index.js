@@ -78,7 +78,7 @@ export const checkLoggedIn = () => async (dispatch) => {
             type: ACTION_TYPE.LOAD_LOGIN_FINISH,
             payload: {loginLoading: false}
         })
-    }, 2000);
+    }, 1000);
 };
 
 
@@ -90,8 +90,9 @@ export const getChats = (name) => async dispatch => {
     const response = await serverApi.get(url, {
         headers: getHeaders()
     });
+    
     const chats = {};
-    response.data.chats.forEach(chat => {
+    response.data.data.forEach(chat => {
         chats[`${chat._id}`] = chat; 
     });
     if (name) chats.searching = true;
@@ -104,7 +105,7 @@ export const getChats = (name) => async dispatch => {
             type: ACTION_TYPE.LOAD_CHATS_FINISH,
             payload: {chatsLoading: false}
         });
-    }, 250);
+    }, 100);
 }
 
 const getMessages = async (chatId, dispatch, getState) => {
@@ -138,7 +139,7 @@ export const startChat = chat => (dispatch, getState) => {
             type: ACTION_TYPE.LOAD_MESSAGES_FINISH,
             payload: {messagesLoading: false}
         });
-    }, 250);
+    }, 200);
 }
 
 export const sendMessage = message => async (dispatch) => {
@@ -259,16 +260,56 @@ export const getFriendRequest = () => async dispatch => {
     try {
         const response = await serverApi.get('/api/v1/users/friendRequest', {headers: getHeaders()});
         if (response.data.status === 'success') {
-            const friendRequests = response.data.data.map(fr => fr.from);
-            console.log('fetch data successfully');
-            console.log(friendRequests);
+            const friendRequests = response.data.data;
             dispatch({
                 type: ACTION_TYPE.GET_FRIEND_REQUESTS,
                 payload: friendRequests
             });
         }
     } catch (err) {
-        console.log('no error???????????');
+        dispatch({
+            type: ACTION_TYPE.FAIL_REQUEST,
+            payload: {error: 'Internal Server Error!'}
+        });
+    }
+};
+
+export const acceptFriendRequest = (requestId) => async dispatch => {
+    try {
+        const response = await serverApi.patch('/api/v1/users/friendRequest', {requestId}, {headers: getHeaders()});
+        if (response.data.status === 'success') {
+            dispatch({
+                type: ACTION_TYPE.ACCEPT_FRIEND_REQUEST,
+                payload: requestId
+            });
+            const friendId = response.data.data;
+            dispatch({
+                type: ACTION_TYPE.ADD_FRIEND_ID,
+                payload: friendId
+            });
+            const createChatResponse = await serverApi.post('/api/v1/chats', {friendId}, {headers: getHeaders()});
+            dispatch({
+                type: ACTION_TYPE.CREATE_CHAT,
+                payload: createChatResponse.data.data
+            });
+        }
+    }
+    catch (err) {
+        dispatch({
+            type: ACTION_TYPE.FAIL_REQUEST,
+            payload: {error: 'Internal Server Error!'}
+        });
+    }
+};
+
+export const removeFriendRequest = requestId => async dispatch => {
+    try {
+        await serverApi.delete('/api/v1/users/friendRequest', {requestId}, {headers: getHeaders()});
+        dispatch({
+            type: ACTION_TYPE.REMOVE_FRIEND_REQIEST,
+            payload: requestId
+        });
+    } catch (err) {
         dispatch({
             type: ACTION_TYPE.FAIL_REQUEST,
             payload: {error: 'Internal Server Error!'}
