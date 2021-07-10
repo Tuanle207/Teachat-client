@@ -1,0 +1,206 @@
+.authen-content {
+    height: 100vh;
+    min-height: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media only screen and (max-width: 37.5em) {
+    .authen-content {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+.authen-form {
+    width: 40rem;
+    background-color: var(--color-grey-1);
+    color: var(--color-dark-3);
+    box-shadow: var(--box-shadow-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 50rem;
+    padding-bottom: 1.5rem;
+}
+.authen-form__heading {
+    padding: 2.5rem 3.5rem;
+    padding-top: 3rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.authen-form__heading--title {
+    font-size: 2.4rem;
+    display: inline-block;
+    flex: 0 0 100%;
+    text-transform: uppercase;
+    text-align: center;
+}
+.authen-form__heading--icon {
+    margin-top: 1rem;
+    width: 10rem;
+    height: 10rem;
+    box-sizing: content-box;
+    fill: var(--color-dark-1);
+    transition: all 0.2s;
+}
+.authen-form__heading--icon:hover {
+    fill: var(--color-dark-3);
+    transform: scale(1.1);
+}
+.authen-form__heading--text {
+    font-size: 1.8rem;
+    margin-right: auto;
+    margin-left: 3rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-form__input-wrap {
+    padding: 0.5rem 3rem;
+    color: inherit;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.login-form__input-wrap:not(:last-child) {
+    margin-bottom: 1rem;
+}
+.login-form__label {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    width: 100%;
+}
+.login-form__info {
+    width: 100%;
+    padding: 1rem 2rem;
+    padding-left: 3rem;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--color-grey-2);
+    background-color: transparent;
+    margin-left: -2rem;
+    transition: all 0.75s;
+}
+.login-form__info:focus {
+    border-bottom: 2px solid var(--color-dark-3);
+}
+.login-form__info:focus + svg {
+    fill: inherit;
+}
+.login-form__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--color-grey-3);
+    transition: 0.75s;
+}
+.login-form__options {
+    font-size: 1.2rem;
+    padding: 0.5rem 3rem;
+    padding-bottom: 3rem;
+    display: flex;
+    align-items: center;
+}
+.login-form__options__remember-check {
+    display: none;
+}
+.login-form__options__remember-check:checked + label svg {
+    display: inline-block;
+    visibility: visible;
+}
+.login-form__options__remember-label {
+    margin-right: auto;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+.login-form__options__remember-label span:first-child {
+    background-color: rgba(10, 10, 10, 0.2);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+.login-form__options__remember-label span:last-child {
+    display: inline;
+}
+.login-form__options__check-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    visibility: hidden;
+}
+.login-form__options__forgot-password {
+    font-style: italic;
+    color: var(--color-dark-3);
+}
+.login-form__options__forgot-password:hover {
+    transform: scale(1.25) skewX(-10deg);
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.login-form__login-button {
+    display: inline-block;
+    position: relative;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    border-radius: 100px;
+    height: 5rem;
+    width: 50%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), black);
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+.login-form__login-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+.login-form__login-button:hover::after {
+    transform: scaleX(1.3) scaleY(1.5);
+    opacity: 0;
+}
+.login-form__login-button::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), black);
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.create-account {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.copyright-text {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.medium-margin-bottom {
+    margin-bottom: 1.5rem !important;
+}

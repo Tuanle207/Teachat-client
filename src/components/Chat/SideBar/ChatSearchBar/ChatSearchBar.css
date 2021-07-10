@@ -1,0 +1,32 @@
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  @media only screen and (max-width: 56.25em) {
+    .search {
+      display: none;
+    }
+  }
+  .search__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--color-grey-1);
+    position: absolute;
+    left: 2rem;
+    cursor: pointer;
+  }
+  .search__input {
+    outline: none;
+    border: none;
+    height: 4.25rem;
+    width: 100%;
+    color: inherit;
+    background-color: var(--color-dark-2);
+    padding: 1.5rem 1.5rem 1.5rem 4.5rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  .search__input:focus {
+    background-color: var(--color-dark-1);
+  }

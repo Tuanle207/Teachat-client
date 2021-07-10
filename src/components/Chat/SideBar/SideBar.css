@@ -1,0 +1,26 @@
+
+.side-nav {
+    flex: 0 0 32rem;
+    color: var(--color-grey-1);
+    background-color: var(--color-dark-3);
+    position: relative;
+    overflow: hidden;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+  }
+  @media only screen and (max-width: 68.75em) {
+    .side-nav {
+      flex: 0 0 30%;
+    }
+  }
+  @media only screen and (max-width: 56.25em) {
+    .side-nav {
+      flex: 0 0 6rem;
+      overflow: visible;
+    }
+  }
+

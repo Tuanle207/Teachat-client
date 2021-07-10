@@ -1,0 +1,17 @@
+.spinner {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .spinner__icon {
+    width: 7rem;
+    height: 7rem;
+    fill: var(--color-grey-3);
+    animation: spin 1s linear infinite;
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
